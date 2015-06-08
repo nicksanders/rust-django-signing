@@ -1,0 +1,10 @@
+[package]
+name = "django-signing"
+version = "0.1.0"
+authors = ["Nick Sanders <nicksanders11@gmail.com>"]
+
+[dependencies]
+flate2 = "0.2"
+rust-crypto = "*"
+rustc-serialize = "0.3"
+time = "0.1"
