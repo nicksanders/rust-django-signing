@@ -3,6 +3,8 @@ django-signing
 
 Utilities for decoding django signed cookies in rust
 
+[![Build Status](https://travis-ci.org/nicksanders/rust-django-signing.svg?branch=master)](https://travis-ci.org/nicksanders/rust-django-signing)
+
 ## Usage
 
 Put this in your `Cargo.toml`:
