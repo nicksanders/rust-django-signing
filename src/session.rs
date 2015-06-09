@@ -4,7 +4,7 @@ use std::io::Read;
 use flate2::read::ZlibDecoder;
 use rustc_serialize::json;
 
-use baseconv;
+use baseconv::{Base, BaseConv};
 use signing;
 
 #[derive(Debug, PartialEq)]
@@ -31,7 +31,7 @@ pub fn validate(salt: &str, secret: &str, session_id: &str, max_age: Option<usiz
 
     if max_age != None {
         let min_secs = time::get_time().sec - max_age.unwrap_or(0) as i64;
-        if baseconv::b62_decode(timestamp) < min_secs {
+        if BaseConv::new(Base::Base62).decode(timestamp) < min_secs {
             return Err(SessionError::SessionExpired);
         }
     }

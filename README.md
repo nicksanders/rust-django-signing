@@ -10,8 +10,8 @@ Utilities for decoding django signed cookies in rust
 Put this in your `Cargo.toml`:
 
 ```toml
-[dependencies.django_signing]
-git = "https://github.com/nicksanders/django-signing.git"
+[dependencies.django-signing]
+git = "https://github.com/nicksanders/rust-django-signing.git"
 ```
 
 And this in your crate root:
