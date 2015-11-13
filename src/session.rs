@@ -17,6 +17,9 @@ pub enum SessionError {
 pub fn validate(salt: &str, secret: &str, session_id: &str, max_age: Option<usize>) -> Result<String, SessionError> {
     let mut result = String::new();
     let mut parts: Vec<_> = session_id.rsplitn(2, ":").collect();
+    if parts.len() != 2 {
+        return Err(SessionError::SessionInvalid);
+    }
     let signature = parts[0];
     let data = parts[1];
 
@@ -26,6 +29,9 @@ pub fn validate(salt: &str, secret: &str, session_id: &str, max_age: Option<usiz
     }
 
     parts = data.rsplitn(2, ":").collect();
+    if parts.len() != 2 {
+        return Err(SessionError::SessionInvalid);
+    }
     let timestamp = parts[0];
     let payload = parts[1];
 
