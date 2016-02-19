@@ -13,7 +13,7 @@ pub fn b64_encode(s: &[u8]) -> String {
 
 pub fn b64_decode(s: &str) -> Vec<u8> {
     let num = (0 as isize - s.len() as isize) % 4;
-    let pad = (0..num).map(|_| "=").collect::<Vec<_>>().connect("");
+    let pad = (0..num).map(|_| "=").collect::<Vec<_>>().join("");
     let padded_str = s.to_string() + &pad;
     padded_str.into_bytes().from_base64().ok().expect("b64_decode failed")
 }

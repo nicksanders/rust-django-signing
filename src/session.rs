@@ -94,8 +94,8 @@ fn test_session() {
 
     assert_eq!(validate(salt, secret, input, Some(0)).err(), Some(SessionError::SessionExpired));
 
-    assert_eq!(validate(salt, secret, input, Some(999999)).unwrap(), output);
+    assert_eq!(validate(salt, secret, input, Some(99999999)).unwrap(), output);
 
-    let session = validate(salt, secret, input, Some(999999)).unwrap();
+    let session = validate(salt, secret, input, Some(99999999)).unwrap();
     assert_eq!(get_user_id(&session), Some(1));
 }
